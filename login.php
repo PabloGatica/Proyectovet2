@@ -16,6 +16,8 @@
     </head>
     
     <body>
+    <form method="POST">
+    <?php error_reporting(0);?>
         <div id="photo">
         <div id="contenedor">
             <div id="central">
@@ -24,13 +26,29 @@
                         Bienvenido
                     </div>
                     <form id="loginform">
-                        <input type="text" name="usuario" placeholder="Usuario" required>
+                        <input type="text" name="usuario" placeholder="RUT" required>
                         <i name="bx bx-user"></i>
                         
                         <input type="password" placeholder="Contraseña" name="password" required>
                         <i placeholder="bx bx-lock-alt"></i>
-                        
-                        <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                        <?php 
+	if($_POST['login']=="Ingresar"){
+		include("funciones.php");
+		$cnn= Conectar();
+		$user = $_POST['usuario'];
+		$pass = $_POST['password'];
+		$sql="select rut, contraseña from usuarios where Rut = '$user' and Contraseña= '$pass'";
+		$rs = mysqli_query($cnn,$sql);
+			if(mysqli_num_rows($rs) != 0){
+				if($row = mysqli_fetch_array($rs)){
+					$_SESSION['rut'] = $row[0];
+					$_SESSION['con'] = $row[1];
+                    echo "<script>alert('Bienvenido')</script>";
+                    echo "<script type='text/javascript'>window.location='menu.php'</script>";
+                }}}
+                ;                    
+                        ?>
+                        <button type="submit" title="Ingresar" name="login" value= "Ingresar">Login</button>
                     </form>
                     <div class="pie-form">
                         <a href="#">¿Perdiste tu contraseña?</a>
@@ -42,6 +60,6 @@
                 </div>
             </div>
         </div>
-            
+            </form>
     </body>
 </html>

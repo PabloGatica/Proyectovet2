@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 04:46 AM
+-- Generation Time: Dec 13, 2023 at 03:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -138,13 +138,21 @@ CREATE TABLE `medicamentos` (
 --
 
 CREATE TABLE `usuarios` (
-  `ID` int(11) NOT NULL,
+  `RUT` varchar(11) NOT NULL,
   `Nombres` varchar(50) DEFAULT NULL,
   `Apellidos` varchar(50) DEFAULT NULL,
   `Direccion` varchar(255) DEFAULT NULL,
+  `Sexo` varchar(15) NOT NULL,
   `Fono` int(11) DEFAULT NULL,
   `Contraseña` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`RUT`, `Nombres`, `Apellidos`, `Direccion`, `Sexo`, `Fono`, `Contraseña`) VALUES
+('111111111', 'Gonzalo', 'Gonzales', 'por ahi', 'Masculino', 123456789, '123456789');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +204,7 @@ ALTER TABLE `medicamentos`
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`RUT`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -242,12 +250,6 @@ ALTER TABLE `mascotas`
 -- AUTO_INCREMENT for table `medicamentos`
 --
 ALTER TABLE `medicamentos`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
