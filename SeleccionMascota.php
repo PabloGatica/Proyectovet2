@@ -74,7 +74,7 @@ body {
 }
 </style>
         <center>
-		<H1>Selecciones su mascota</H1>
+		<H1>Seleccione su mascota</H1>
 		<form action="" method="post">
 			<?php include("funciones.php");
 			$cnn = Conectar();?>
@@ -103,6 +103,10 @@ body {
 					<td></td>
 					<td><input type="submit" name="BotonEliminar" value="Eliminar"></td>
 				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="BotonActualizar" value="Actualizar"></td>
+				</tr>
 				<?php
 			if($_POST['BotonEliminar']=="Eliminar")
 			{
@@ -122,6 +126,7 @@ body {
 				$selpet = $_POST['Selpet'];
 				$rs = mysqli_query($cnn, "select * from mascotas where nombre = '$selpet'");
 					 if($row = mysqli_fetch_array($rs)){
+						$ID							= $row[0];
 						$Nombre						= $row[1];
 						$Tipo 						= $row[2];
 						$Dueño 						= $row[3];
@@ -138,49 +143,74 @@ body {
 					 }
 			   }
 			?>	
+			<?php
+			if($_POST['BotonActualizar']=="Actualizar")
+			{
+						$ID							= $_POST['ID'];
+						$NNombre					= $_POST['nombre'];
+						$NTipo 						= $_POST['tipo'];
+						$NDueño 					= $_POST['due'];
+						$NFechaNacimiento			= $_POST['fnac'];
+						$NFechaAdopcion				= $_POST['fadop'];
+						$NLugarAdopcion				= $_POST['ladop'];
+						$NRaza						= $_POST['raza'];
+						$NEsterilizacion			= $_POST['ester'];
+						$NFechaCelos				= $_POST['fcelo'];
+						$NCorteUñas					= $_POST['fcor'];
+						$sql = "update mascotas set Nombre = '$NNombre', Tipo = '$NTipo', Dueño = '$NDueño', Fecha_Nacimiento = '$NFechaNacimiento', Fecha_Adopcion = '$NFechaAdopcion', Lugar_Adopcion = '$NLugarAdopcion', Raza = '$NRaza', Esterilizacion = '$NEsterilizacion', Fecha_Celos = '$NFechaCelos', Corte_Uñas = '$NCorteUñas' WHERE ID = '$ID'";
+						echo $sql;
+						mysqli_query($cnn,$sql);
+				
+						echo"<script>alert('Datos actualizados satisfactoriamente')</script>";
+					 }
+			?>	
 			<br>
 			<br>
 			<table border=1>
+			<tr>
+					<td>ID</td>
+					<td><input type = "text" name = "ID" value ="<?php echo $ID; ?>"readonly></td>
+				</tr>
 					<tr>
-						<td>Nombres Alumno</td>
-						<td><input type = "text" name = "nombres" value ="<?php echo $Nombre ?>"readonly size="40"></td>
+						<td>Nombre</td>
+						<td><input type = "text" name = "nombre" value ="<?php echo $Nombre ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Apellidos Alumno</td>
-						<td><input type = "text" name = "apellidos" value ="<?php echo $Tipo ?>"readonly size="40"></td>
+						<td>Tipo</td>
+						<td><input type = "text" name = "tipo" value ="<?php echo $Tipo ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Fecha Matricula:</td>
-						<td><input type = "text" name = "fnac" value ="<?php echo $Dueño ?>"readonly size="40"></td>
+						<td>Dueño</td>
+						<td><input type = "text" name = "due" value ="<?php echo $Dueño ?>" size="40"></td>
 					</tr>
 						<tr>
-						<td>Jornada:</td>
-						<td><input type = "text" name = "telealum" value ="<?php echo $FechaNacimiento ?>"readonly size="40"></td>
+						<td>Fecha de Nacimiento</td>
+						<td><input type = "date" name = "fnac" value ="<?php echo $FechaNacimiento ?>" size="40"></td>
 					</tr>
 					</tr>
 						<tr>
-						<td>Telefono:</td>
-						<td><input type = "text" name = "telealum" value ="<?php echo $FechaAdopcion ?>"readonly size="40"></td>
+						<td>Fecha de Adopcion</td>
+						<td><input type = "text" name = "fadop" value ="<?php echo $FechaAdopcion ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Correo:</td>
-						<td><input type = "text" name = "profejefe" value ="<?php echo $LugarAdopcion ?>"readonly size="40"></td>
+						<td>Lugar de Adopcion</td>
+						<td><input type = "text" name = "ladop" value ="<?php echo $LugarAdopcion ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Telefono Emergencia:</td>
-						<td><input type = "text" name = "jornada" value ="<?php echo $Raza ?>"readonly size="40"></td>
+						<td>Raza</td>
+						<td><input type = "text" name = "raza" value ="<?php echo $Raza ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Apoderado</td>
-						<td><input type = "text" name = "correoalum" value ="<?php echo $Esterilizacion ?>"readonly size="40"></td>
+						<td>Esterilizacion</td>
+						<td><input type = "text" name = "ester" value ="<?php echo $Esterilizacion ?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Curso:</td>
-						<td><input type = "text" name = "nombreapo" value ="<?php echo $FechaCelos?>"readonly size="40"></td>
+						<td>Fecha de Ultimo celo</td>
+						<td><input type = "date" name = "fcelo" value ="<?php echo $FechaCelos?>" size="40"></td>
 					</tr>
 					<tr>
-						<td>Tarjeta:</td>
-						<td><input type = "text" name = "apeapo" value ="<?php echo $CorteUñas ?>"readonly size="40"></td>
+						<td>Fecha de Ultimo corte de Uñas</td>
+						<td><input type = "date" name = "fcor" value ="<?php echo $CorteUñas ?>" size="40"></td>
 					</tr>
 					
 				
