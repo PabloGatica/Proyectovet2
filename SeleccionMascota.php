@@ -142,44 +142,44 @@ body {
 			<br>
 			<table border=1>
 					<tr>
-						<td>Nombres Alumno</td>
-						<td><input type = "text" name = "nombres" value ="<?php echo $Nombre ?>"readonly size="40"></td>
+						<td>Nombre</td>
+						<td><input type = "text" name = "nombre" value ="<?php echo $Nombre ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Apellidos Alumno</td>
-						<td><input type = "text" name = "apellidos" value ="<?php echo $Tipo ?>"readonly size="40"></td>
+						<td>Tipo</td>
+						<td><input type = "text" name = "tipo" value ="<?php echo $Tipo ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Fecha Matricula:</td>
+						<td>Dueño</td>
 						<td><input type = "text" name = "fnac" value ="<?php echo $Dueño ?>"readonly size="40"></td>
 					</tr>
 						<tr>
-						<td>Jornada:</td>
+						<td>Fecha de Nacimiento</td>
 						<td><input type = "text" name = "telealum" value ="<?php echo $FechaNacimiento ?>"readonly size="40"></td>
 					</tr>
 					</tr>
 						<tr>
-						<td>Telefono:</td>
+						<td>Fecha de Adopcion</td>
 						<td><input type = "text" name = "telealum" value ="<?php echo $FechaAdopcion ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Correo:</td>
+						<td>Lugar de Adopcion</td>
 						<td><input type = "text" name = "profejefe" value ="<?php echo $LugarAdopcion ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Telefono Emergencia:</td>
+						<td>Raza</td>
 						<td><input type = "text" name = "jornada" value ="<?php echo $Raza ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Apoderado</td>
+						<td>Esterilizacion</td>
 						<td><input type = "text" name = "correoalum" value ="<?php echo $Esterilizacion ?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Curso:</td>
+						<td>Fecha de Ultimo celo</td>
 						<td><input type = "text" name = "nombreapo" value ="<?php echo $FechaCelos?>"readonly size="40"></td>
 					</tr>
 					<tr>
-						<td>Tarjeta:</td>
+						<td>Fecha de Ultimo corte de Uñas</td>
 						<td><input type = "text" name = "apeapo" value ="<?php echo $CorteUñas ?>"readonly size="40"></td>
 					</tr>
 					
