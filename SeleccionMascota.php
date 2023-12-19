@@ -158,7 +158,7 @@ body {
 						$NFechaCelos				= $_POST['fcelo'];
 						$NCorteUñas					= $_POST['fcor'];
 						$sql = "update mascotas set Nombre = '$NNombre', Tipo = '$NTipo', Dueño = '$NDueño', Fecha_Nacimiento = '$NFechaNacimiento', Fecha_Adopcion = '$NFechaAdopcion', Lugar_Adopcion = '$NLugarAdopcion', Raza = '$NRaza', Esterilizacion = '$NEsterilizacion', Fecha_Celos = '$NFechaCelos', Corte_Uñas = '$NCorteUñas' WHERE ID = '$ID'";
-						echo $sql;
+						
 						mysqli_query($cnn,$sql);
 				
 						echo"<script>alert('Datos actualizados satisfactoriamente')</script>";
