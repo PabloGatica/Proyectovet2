@@ -162,6 +162,8 @@ body {
 						mysqli_query($cnn,$sql);
 				
 						echo"<script>alert('Datos actualizados satisfactoriamente')</script>";
+						echo "<meta http-equiv='refresh' content='0'>";
+
 					 }
 			?>	
 			<br>
