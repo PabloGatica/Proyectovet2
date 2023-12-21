@@ -43,51 +43,52 @@ function IniciarReloj24 () {
         <form name="reloj24">
             <input type="text" name="txtDigitos" value="" size="8">
 </form>
-	<body bgcolor="#4284f5">
-	<center>
-		<H1>REGISTRO DE USUARIOS</H1>
-		<form action="" method="post" enctype="text">
-			<table border=0>
-				<tr>
-					<td>Rut:</td>
-					<td><input type = "text" name = "rut" value =""></td>
-				</tr>
-				<tr>
-					<td>Nombres:</td>
-					<td><input type = "text" name = "nombres" value =""></td>
-				</tr>
-				<tr>
-					<td>Apellidos:</td>
-					<td><input type = "text" name = "apellidos" value =""></td>
-				</tr>
-				<tr>
-					<td>Direccion:</td>
-					<td><input type = "text" name = "dirc" value =""></td>
-				</tr>
-				<tr>
-					<td>Sexo:</td>
-					<td>
-						<select name="SelSexo">
-							<option value="Masculino">Masculino</option>
-							<option value="Femenino">Femenino</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Fono:</td>
-					<td><input type = "text" name = "fono" value =""></td>
-				</tr>
-				<tr>
-					<td>Contraseña:</td>
-					<td><input type = "password" name = "pass" value= "" maxLenght = "15"></td>
-				<tr>
-					<td></td>
-					<td><input type="Submit" name="BotonRegistrar" value="Registrar"></td>
-				</tr>
-				
-				<tr>
-			</table>
-		</form>
+<link rel="stylesheet" href="css/styleform.css">
+<div>
+	<body>
+    <div class="container">
+        <div class="header">
+            <h1>REGISTRO DE USUARIOS</h1>
+        </div>
+        <form action="procesar_registro.php" method="post" id="loginform">
+            <div class="form-group">
+                <label for="rut">Rut:</label>
+                <input type="text" name="rut" id="rut" placeholder="ej: 11.111.111-1" required>
+            </div>
+            <!-- Agrega más campos para nombres, apellidos, dirección, etc. -->
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" name="nombres" id="nombres" placeholder="ej: Juan Alberto" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" id="apellidos" placeholder="ej: Perez Diaz" required>
+            </div>
+            <!-- Otros campos del formulario -->
+            <div class="form-group">
+                <label for="SelSexo">Sexo:</label>
+                <select name="SelSexo" id="SelSexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fono">Fono:</label>
+                <input type="text" name="fono" id="fono" placeholder="ej: 999999999" required>
+            </div>
+            <div class="form-group">
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <div class="form-group2">
+                <input type="Submit" name="BotonRegistrar" value="Registrar">
+            </div>
+        </form>
+        <a href="index.php">Volver</a>
+    </div>
+	</div>
+</body>
+</html>
 		<?php error_reporting(0);?>
 		<?php
 			if($_POST['BotonRegistrar']=="Registrar")
@@ -102,7 +103,7 @@ function IniciarReloj24 () {
 				$fon = $_POST['fono'];
 				$pas = $_POST['pass'];				
 				
-				$sql = "insert into usuarios values('$rut','$nom','$ape','$dir','$sex','$fon','$pas')";
+				$sql = "insert into usuarios values('$rut','$nom','$ape','$dir','$fon','$pas')";
 				
 				//echo sql;
 				
@@ -111,7 +112,6 @@ function IniciarReloj24 () {
 				echo"<script>alert('registro exitoso')</script>";
 			}
 		?>
-		<a href="index.php">Volver</a>
 	</center>
 	</body>
 </html>

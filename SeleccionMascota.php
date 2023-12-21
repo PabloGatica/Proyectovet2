@@ -61,6 +61,7 @@
     </table>
         </form>
     <head>
+	
         <title>SISTEMA CONTROL</title>
     </head>
 
@@ -73,8 +74,11 @@ body {
   background-size: cover;
 }
 </style>
-        <center>
-		<H1>Seleccione su mascota</H1>
+        
+		<link rel="stylesheet" href="css/styleform.css">
+	<div class="container">
+		<div class="header">
+		<h1>Seleccione su mascota</h1></div>
 		<form action="" method="post">
 			<?php include("funciones.php");
 			$cnn = Conectar();?>
@@ -107,6 +111,8 @@ body {
 					<td></td>
 					<td><input type="submit" name="BotonActualizar" value="Actualizar"></td>
 				</tr>
+				
+				
 				<?php
 			if($_POST['BotonEliminar']=="Eliminar")
 			{
@@ -168,7 +174,7 @@ body {
 			?>	
 			<br>
 			<br>
-			<table border=1>
+			<table>
 			<tr>
 					<td>ID</td>
 					<td><input type = "text" name = "ID" value ="<?php echo $ID; ?>"readonly></td>
@@ -219,11 +225,15 @@ body {
 
 
 					
-							 <a href="registroMascotas.php"><button type="button">Registrar nueva mascota</button></a>
+							 <a href="registroMascotas.php">
+								<button type="button" class="button">Registrar nueva mascota</button>
+							</a>
 							 
 		</table>
+		
 		<a href="index.php">Volver</a>
 	</center>
 			</form>
+			</div>
 	</body>
 </html>

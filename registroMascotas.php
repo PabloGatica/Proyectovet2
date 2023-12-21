@@ -43,9 +43,12 @@ function IniciarReloj24 () {
         <form name="reloj24">
             <input type="text" name="txtDigitos" value="" size="8">
 </form>
-	<body bgcolor="#4284f5">
+<link rel="stylesheet" href="css/styleform.css">
+	<body>
+		<div class="container">
 	<center>
-		<H1>REGISTRO DE MASCOTAS</H1>
+		<div class="header">
+		<H1>REGISTRO DE MASCOTAS</H1></div>
 		<form action="" method="post" enctype="text">
 			<table border=0>
 				<tr>
@@ -96,6 +99,7 @@ function IniciarReloj24 () {
 				
 			</table>
 		</form>
+</div>
 		<?php error_reporting(1);?>
 		<?php
 			if($_POST['BotonRegistrar']=="Registrar")
